@@ -624,3 +624,80 @@ f' (x)=f' (u_0)φ' (x_0),
 		解析：
 	\end{taggedblock}
 \end{example}
+
+\stitle{函数的变化率}
+一般来说物理量都是变量，会随着外在环境的改变而发生变化。对于物理量 $ A $来说， $ \Delta A/\Delta t $计算的是一段时间内该物理量的平均变化率。
+而当 $ \Delta t\rightarrow 0 $时，就是对变化率取极限$ \lim_{\Delta t\rightarrow 0} \Delta A/\Delta t  $对应的是瞬时变化率。
+比如我们在高中物理最开始学习的运动学知识时，物体运动的平均速度是由物体一段时间内位移随时间的平均变化率$ v=\Delta x/\Delta t $确定，而物体运动的瞬时速度是由物体通过位移随时间的瞬时变化率
+\[
+v = \lim_{\Delta t\rightarrow 0}\frac{\Delta x}{\Delta t} = \dv{x}{t}
+\]
+确定。
+在之前，给定物体运动的位置随时间变化关系，只能得到几种特殊运动模式中物体的瞬时速度随时间变化关系。求导提供给我们的是，对于任意给定的运动，求出其速度的数学方法，这种方法是更通用也是更本质的。
+当然，除了速度之外还有很多物理量是随时间变化而变化的，例如对动量$ \vec{p} $求对时间的瞬时变化率，得到的是
+\[
+\dv{\vec{p}}{t} = m\dv{\vec{v}}{t} = m\vec{a},
+\]
+实际上
+\[
+\vec{F} = \dv{\vec{p}}{t}
+\]
+正是Newton第二定律的最初表达形式。
+另外，物理量除了随时间变化，还会随空间变化。例如导热棒两端分别接触冷源和热源时，导热棒的温度就会随着空间位置变化，其变化率为 $ dT/dx $，物理上称其为温度梯度。
+
+\begin{example}
+	%%%%题干
+	一个人在岸上以匀速$ v $水平拉船，岸高度为$ h $，绳子与河夹角为$ \theta $．此时船的速度和加速度为？
+			\begin{flushright}
+				\includegraphics[width=0.4\linewidth]{image/kinamatics-9.png}
+			\end{flushright}
+	%%%%插图
+	%	\begin{problemfig}
+	%		\includegraphics[width=0.6\linewidth]{image/}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{2cm}
+	\end{taggedblock}
+	
+	
+	%%%%答案
+	\begin{taggedblock}{answer}
+		答案：
+	\end{taggedblock}
+	
+	
+	%%%%解析
+	\begin{taggedblock}{analysis}
+		解析：
+	\end{taggedblock}
+\end{example}
+
+
+\begin{example}
+	%%%%题干
+	一个半径为$ R $的半圆柱体沿水平方向向右做加速度为$ a $的匀加速运动，在半圆柱体上搁置一根竖直杆，此杆只能沿竖直方向运动．当半圆柱体的速度为$ v $时，杆与半圆柱体接触点P与柱心的连线与竖直方向的夹角为$ \theta $，求此时竖直杆运动的加速度．
+		\begin{flushright}
+			\includegraphics[width=0.3\linewidth]{image/kinamatics-10.png}
+		\end{flushright}
+	%%%%插图
+	%	\begin{problemfig}
+	%		\includegraphics[width=0.6\linewidth]{image/}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{2cm}
+	\end{taggedblock}
+	
+	
+	%%%%答案
+	\begin{taggedblock}{answer}
+		答案：
+	\end{taggedblock}
+	
+	
+	%%%%解析
+	\begin{taggedblock}{analysis}
+		解析：
+	\end{taggedblock}
+\end{example}

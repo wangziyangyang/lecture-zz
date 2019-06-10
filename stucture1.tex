@@ -1,0 +1,220 @@
+\usepackage{ctex}
+
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{ntheorem}
+\usepackage[twoside,top=2.5cm,bottom=2.5cm,left=2.5cm,right=5cm,a4paper,marginparwidth=4cm,marginparsep=0.5cm]{geometry}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+\usepackage{tkz-euclide}
+\usepackage{tkz-base}
+\usetikzlibrary{math,arrows,backgrounds,scopes,plotmarks,shapes,calc,decorations.pathmorphing,shadows, positioning,fit,petri,intersections,through,backgrounds, shapes.geometric,topaths,automata,mindmap,folding,calendar,chains,circuits,circuits.ee.IEC}
+\usetkzobj{all}
+\makeatletter
+\global\let\tikz@ensure@dollar@catcode=\relax
+\makeatother
+\usepackage{calc,pifont}
+\newcommand\maincolor{cyan}
+\usepackage{fancyhdr}
+\newcommand\lwidth{17}
+\pagestyle{fancy}
+%\fancyfoot[r]{\thepage}
+\newcommand{\X}{\phantom{X}}
+
+
+\makeatletter 
+\newcommand\figcaption{\def\@captype{figure}\caption} 
+\newcommand\tabcaption{\def\@captype{table}\caption} 
+\makeatother
+
+\usepackage{caption2}
+ \captionsetup{font=footnotesize}
+\usepackage{wrapfig}
+\usepackage{verbatim}
+\usepackage{slashed} 
+\usepackage{appendix} 
+\usepackage{pdfpages}
+\usepackage{wasysym}
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{tagging}
+\usepackage{multicol}
+%\usepackage{frame}
+\usepackage{tabu}
+\usepackage{longtable}
+\graphicspath{{problem/image/}}
+
+%%%%%%%%%%%%%%%边框文字
+\usepackage[explicit]{titlesec}
+\usepackage{lmodern}
+\usepackage[many]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\tcbuselibrary{theorems}
+
+
+\usepackage{CJKnumb}
+\newcommand{\formatsubsection}[1]{
+	{\color{\maincolor}\ding{113}\kern0.5em\relax\bf #1}
+}
+\titleformat{\subsection}[hang]
+{}
+{}
+{0em}
+{\formatsubsection{#1}}
+\newcommand{\stitle}[1]{\subsection{#1}\label{#1}}
+
+
+
+%\theoremstyle{break}
+\theorembodyfont{\small}
+\theoremindent1cm
+\theoremsymbol{\ensuremath{\ast}}
+\theoremseparator{}
+
+\newcommand{\formatsection}[1]{
+	\begin{center}\begin{tikzpicture}
+		\filldraw[draw=\maincolor,fill=\maincolor](0,-.4)--(0,.3)--(.3,.6)--(\lwidth-3.5,.6)--(\lwidth-3.5,-.4)--(0,-.4);
+		\node [anchor=west] at(1,.1){\large \color{white} #1};
+		\end{tikzpicture}\end{center}
+}
+\titleformat{\section}[hang]
+{\usefont{T1}{qhv}{b}{n}}
+{}
+{0em}
+{\formatsection{#1}}
+
+
+\newenvironment{post-problem}{
+	\newpage\section*{课后练习}
+%	\begin{multicols}{2}
+	\linespread{1}}{\linespread{1}}
+%	\end{multicols}}
+
+\newcounter{example}[chapter]
+\newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
+	\textbf{\thechapter.\theexample #1} \rmfamily}{\medskip}
+%\newtheorem{example}{}[chapter]
+
+\newenvironment{problemfig}{\begin{center}}{ \end{center}}
+
+
+
+%\newtcbtheorem[number within=chapter]{eg}{例}
+%{breakable,colback=blue!2,colframe=green!25!black,fonttitle=\bfseries,fontupper=\small\CTEXindent,before skip=5mm,code={\singlespacing}}{exa}
+\newtcbtheorem[number within=chapter]{app}{例}
+{breakable,colback=blue!2,colframe=blue!35!black,fonttitle=\bfseries,fontupper=\small\CTEXindent,fontlower=\small\CTEXindent}{app}
+
+\definecolor{titlebgdark}{RGB}{0,163,243}
+\definecolor{titlebglight}{RGB}{191,233,251}
+
+
+\graphicspath{{image/}} % Specifies the directory where pictures are stored
+\renewcommand{\vec}[1]{\vb*{#1}}
+
+\newcommand{\crp}[2]{\vec{#1}\times\vec{#2}}
+\newcommand{\dotp}[2]{\vec{#1}\cdot\vec{#2}}
+\newcommand{\Ga}[2]{\Gamma^{#1}_{#2}}
+\renewcommand{\pb}[2]{\left[{#1},{#2}  \right]_{P.B.}}
+\renewcommand{\op}[1]{\^{#1}}
+\newcommand{\sch}{Schr\"{o}dinger}
+\newcommand{\roma}[1]{\uppercase\expandafter{\romannumeral#1}}
+\newcommand{\const}{\text{const.}}
+\newcommand{\vdw}{Van der Walls}
+\renewcommand{\deg}[1]{#1^\circ}
+
+%\newcommand{\titleform}{第\thechapter 讲}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% chapter format
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}
+{}
+{20pt}
+{%
+	\begin{tcolorbox}[
+		enhanced,
+		colback=titlebgdark,
+		boxrule=0.25cm,
+		colframe=titlebglight,
+		arc=0pt,
+		outer arc=0pt,
+		leftrule=0pt,
+		rightrule=0pt,
+		fontupper=\color{white}\sffamily\bfseries\huge,
+		enlarge left by=-1in-\hoffset-\oddsidemargin,
+		enlarge right by=-\paperwidth+1in+\hoffset+\oddsidemargin+\textwidth,
+		width=\paperwidth,
+		left=1in+\hoffset+\oddsidemargin,
+		right=\paperwidth-1in-\hoffset-\oddsidemargin-\textwidth,
+		top=0.6cm,
+		bottom=0.6cm,
+		overlay={
+			\node[
+			fill=titlebgdark,
+			draw=titlebglight,
+			line width=0.15cm,
+			inner sep=0pt,
+			text width=1.7cm,
+			minimum height=1.7cm,
+			align=center,
+			font=\color{white}\sffamily\bfseries\fontsize{30}{36}\selectfont
+			]
+			(chapname)
+			at ([xshift=-4cm]frame.north east)
+			{\thechapter};
+%			\node[font=\small,anchor=south,inner sep=2pt] at (chapname.north)
+%			{\MakeUppercase\chaptertitlename};
+		}
+		]
+		#1
+	\end{tcolorbox}%
+}
+\titleformat{name=\chapter,numberless}[display]
+{\normalfont\huge\bfseries}
+{}
+{20pt}
+{%
+	\begin{tcolorbox}[
+		enhanced,
+		colback=titlebgdark,
+		boxrule=0.25cm,
+		colframe=titlebglight,
+		arc=0pt,
+		outer arc=0pt,
+		remember as=title,
+		leftrule=0pt,
+		rightrule=0pt,
+		fontupper=\color{white}\sffamily\bfseries\huge,
+		enlarge left by=-1in-\hoffset-\oddsidemargin,
+		enlarge right by=-\paperwidth+1in+\hoffset+\oddsidemargin+\textwidth,
+		width=\paperwidth,
+		left=1in+\hoffset+\oddsidemargin,
+		right=\paperwidth-1in-\hoffset-\oddsidemargin-\textwidth,
+		top=0.6cm,
+		bottom=0.6cm,
+		]
+		#1
+	\end{tcolorbox}%
+}
+\titlespacing*{\chapter}
+{0pt}{0pt}{40pt}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\fancyfoot[c]{}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancyfoot[LE,RO]{\begin{tikzpicture}[baseline, every node/.style={minimum size=8mm, anchor=base}]
+	\path node at (0,0) [shape=circle, fill=\maincolor!20] (0,0) {\X}
+	node at (.8,0) [shape=circle, fill=\maincolor!60] (0,0) {\X}
+	node at (1.6,0) [shape=circle, fill=\maincolor] (0,0) { \color{white}\thepage};\end{tikzpicture}}
+\fancyhead[L]{\small\it\color{\maincolor}高一$ \cdot $第\thechapter 讲}
+
+\rhead{\small\it\color{\maincolor}\leftmark}
+
+
+

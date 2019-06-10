@@ -1,0 +1,626 @@
+% !TEX root = ../zz-lecture.tex
+
+
+\chapter{运动学，导数}
+
+高中课程的起始阶段我们就学习了运动学的内容，研究了描述运动的基本物理量、图象、以及匀变速直线运动规律。在这个模块中我们主要介绍相对运动和运动关联的内容。
+
+\stitle{相对运动}
+
+一个物体的运动需要在某个确定的参考系中进行描述，显然，在不同参考系中对同一运动的描述往往是不同的，这就是运动的相对性。例如，古人在有关天体运动的研究中存在地心说和日心说两种对立的学说，日心说认为太阳是宇宙的中心，地心说认为地球是宇宙的中心。
+从物理学的角度看，这两种学说不存在绝对的对错之分，只是选择了不同的参考系，因此观察到的天体运动规律不同而已。
+
+同一运动在不同参考系中的描述可以互相转换。以速度为例，这种转换有以下的两个基本关系：
+\begin{equation}\label{key}
+\vec{v}_{a\rightarrow b} = -\vec{v}_{b\rightarrow a},
+\end{equation}
+它给出两个对象彼此相对速度之间的关系，例如a相对于b以\SI{3}{m/s}的速度向左运动的话，相对于a来说b则是以相同的速度\SI{3}{m/s}向右运动。
+另一个则是三个对象之间相对速度之间的关系
+\begin{equation}\label{key}
+\vec{v}_{a\rightarrow c} = \vec{v}_{a\rightarrow b}+\vec{v}_{b\rightarrow c},
+\end{equation}
+根据问题的需要灵活地选取三个对象可以轻松地解决一大类涉及到相对运动的问题。
+事实上不仅是速度，位置和加速度也有类似的法则。
+
+
+
+
+
+\begin{app}{船夫过河}{}
+一条河宽d=\SI{60}{m} ，河水的流速为$ v_1 = \SI{3}{m/s} $ ，船在静水中的速度$ v_2 = \SI{5}{m/s} $．
+
+1. 船夫要在最短的时间内渡河，应该怎么划船？最短时间是多少？
+
+2. 如果船夫过河要求航程最短，应该怎划船？用的时间是多少？
+
+3. 河宽保持不变，河水的流速变为$ v_1 = \SI{6}{m/s} $ ，船在静水中的速度变为$ v_2 = \SI{3}{m/s} $  ，同样是上面的要求，船夫应该怎样划船？
+
+
+\tcblower
+
+解析：1. 以最短的时间渡河，船夫应该把船头正对河岸，可保证渡河的时间最短，$ t=d/v_2 =\SI{12}{s} $．
+
+
+\begin{center}
+	\includegraphics[width=0.3\linewidth]{image/kinamatics-1}\qquad\qquad 	\includegraphics[width=0.2\linewidth]{image/kinamatics-2}
+\end{center}
+
+2. 想垂直到达河对岸，应该让船头与上游河岸保持一定的角度$ \theta $，船的运动如左图所示．
+$ \cos\theta =v_1/v_2 =3/5 $，即船头与上游的夹角$\theta=\arccos⁡3/5$；船的合速度$ v=\sqrt{v_2^2-v_1^2}=4~\si{m/s} ,t=d/v=15~\si{s}  $．
+
+3. 要使小船渡河时间最短，小船船头仍然应该垂直河岸渡河，渡河的最短时间$ t_{min} = d/v_2 = \SI{20}{s} $．
+由于现在水流速度大于船在静水中的速度，船夫想要垂直到达河对岸的想法只能成为泡影，我们只能保证船的航程最短，但无法保证船垂直到达对岸．当船在静水中的速度$ v_2 $小于水流速度$ v_1 $时，合速度$ v $不可能与河岸垂直，只有当合速度$ v $方向越接近垂直河岸的方向，航程越短．
+可由几何方法求得，以$ v_1 $的末端为圆心，以$ v_2 $的长度为半径作圆，从$ v_1 $的始端作此圆的切线，该切线方向即为最短航程的方向，如右图所示．
+其中
+\[
+\cos\theta = v_2/v_1
+ = 1/2,\qquad \theta =  60^\circ,\]
+ 由此可得最短航程
+ \[
+ s_{min} = \frac{d}{\cos\theta} = 120~\si{m}.
+ \]
+
+
+\end{app}
+
+
+
+\begin{example}
+	 有一条两岸平直、河水均匀流动、流速恒为$ v $的大河．小明驾着小船渡河，去程时船头指向始终与河岸垂直，回程时行驶路线与河岸垂直．去程与回程所用时间的比值为$ k $，船在静水中的速度大小相同，求小船在静水中的速度，结果用$ k $和$ v $表示。
+	%	\begin{problemfig}
+	%		\includegraphics[width=行宽比例\linewidth]{文件位置}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{3cm}
+	\end{taggedblock}
+	
+	%%%%%%%%答案
+	\begin{taggedblock}{answer}
+		【答案】：$ \frac{v}{\sqrt{1-k^2}} $
+	\end{taggedblock}
+	%%%%%%%%解析
+	
+	\begin{taggedblock}{analysis}
+		【解析】：设船渡河时的速度为$ v_c $,
+		当船头指向始终与河岸垂直，有$ t_1 =d/v_c $ ；
+		当回程时行驶路线与河岸垂直，有$ t_2 =d/v_2 $ ；
+		而回头时的船的合速度$ v_2 =\sqrt{v_c^2-v^2  }$；
+		由于去程与回程所用时间的比值为$ k $，所以小船在静水中的速度大小为
+	\[
+	v_c = \sqrt{\frac{v^2}{1-k^2}} = \frac{v}{\sqrt{1-k^2}}.
+	\]
+		
+	\end{taggedblock}
+\end{example}
+
+
+
+\begin{example}
+	有一条两岸平直、河水均匀流动、流速恒为\SI{4}{m/s}的大河．初始时，船头与河岸成$ 37^\circ $，船刚好能垂直河岸运动．
+	某时刻船的发动机出现障，船相对水的速度逐渐减小到零，船头方向不变．求此过程中，船相对地的速度的最小值．
+	%	\begin{problemfig}
+	%		\includegraphics[width=行宽比例\linewidth]{文件位置}
+	%	\end{problemfig}
+		\begin{taggedblock}{student}
+		\vspace*{3cm}
+	\end{taggedblock}
+
+	%%%%%%%%答案
+	\begin{taggedblock}{answer}
+		答案：\SI{2.4}{m/s}
+	\end{taggedblock}
+	%%%%%%%%解析
+	
+	\begin{taggedblock}{analysis}
+		解析：略
+	\end{taggedblock}
+\end{example}
+
+
+\begin{example}
+	玻璃板生产线上，宽\SI{9}{m}的成型玻璃板以$ 4\sqrt{3}~\si{m/s} $ 的速度连续不断地向前行进，在切割工序处，金刚钻的走刀速度为\SI{8}{m/s} ，为了使割下的玻璃板都成规定尺寸的矩形，金刚钻割刀的轨道应如何控制？切割一次的时间多长？
+	%	\begin{problemfig}
+	%		\includegraphics[width=行宽比例\linewidth]{文件位置}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{3cm}
+	\end{taggedblock}
+	
+	
+	%%%%%%%%答案
+	\begin{taggedblock}{answer}
+		答案：\SI{2.25}{m/s}
+	\end{taggedblock}
+
+	%%%%%%%%解析
+	\begin{taggedblock}{analysis}
+		\marginpar{\centering \includegraphics[width=\marginparwidth]{image/kinamatics-3.png}\figcaption{\theexample 题解析}  }
+		解析： 要切成矩形，则割刀相对玻璃板的速度$ v $垂直玻璃板边缘，如图设$v_k$与$v_g$方向夹角为$ \theta $，$\cos\theta=v_g/v_k =(4√3)/8$，则$\theta=30^\circ$．
+	这样$v = \sqrt{v_k^2-v_g^2} = \SI{4}{m/s}  $，时间$t=s/v=2.25\si{s} $．
+	\end{taggedblock}
+\end{example}
+
+
+\begin{example}
+	某汽车前方的挡风玻璃与水平方向成角度$\deg{37}$，当汽车以\SI{30}{m/s} 在水平地面上开行时，汽车司机看到雨滴垂直打在挡风玻璃上，实际虽然下雨但是没有风，计算雨滴下落的速度．
+	%	\begin{problemfig}
+	%		\includegraphics[width=行宽比例\linewidth]{文件位置}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{2cm}
+	\end{taggedblock}
+	
+	
+	%%%%%%%%答案
+	\begin{taggedblock}{answer}
+		答案：\SI{40}{m/s}
+	\end{taggedblock}
+	%%%%%%%%解析
+	\begin{taggedblock}{analysis}
+		解析：略
+	\end{taggedblock}
+\end{example}
+
+
+\begin{example}
+	 一块板竖直地立在车上，车在雨中匀速行进一段给定的路程．木板板面与车前进方向垂直，其厚度可忽略．设空间单位体积中的雨点数目处处相等，雨点匀速竖直下落．下列诸因素中与落在木板上雨点的数目有关的因素是$ \underline{\qquad\qquad} $
+	 
+	 \begin{center}
+	 	\small
+	 		A.雨点下落的速度 \qquad  B.单位体积中的雨点数  \qquad C.车行进的速度  \qquad D.木板的面积
+	 \end{center}
+
+	
+	%	\begin{problemfig}
+	%		\includegraphics[width=行宽比例\linewidth]{文件位置}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{1cm}
+	\end{taggedblock}
+	
+	
+	%%%%%%%%答案
+	\begin{taggedblock}{answer}
+		答案：BD
+	\end{taggedblock}
+
+
+	%%%%%%%%解析
+	\begin{taggedblock}{analysis}
+		解析：设单位体积中的雨滴数为$n_1$，汽车速度为$ v $，木板的面积为$S  $，在时间$ t $内，汽车行驶的距离$ x=vt $，落在木板面上雨点的数量n$ _2=n×V=n×vtS=nvtS $，单位时间内，落在木板面上雨点的数量$ n=n_1 vS $，由于距离一定落在木板上总雨点数$ n_{total}=n_1 tvS $．
+	\end{taggedblock}
+\end{example}
+
+
+
+\begin{example}
+	一个人以速度\SI{1}{m/s}向北漫步，感受到风从东边来，后来他的速度提高到\SI{2}{m/s}，感受到风从东北方向吹来，求当他静止时，感受到风的方向和速度。
+	%	\begin{problemfig}
+	%		\includegraphics[width=行宽比例\linewidth]{文件位置}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{3cm}
+	\end{taggedblock}
+	
+	
+	%%%%%%%%答案
+	\begin{taggedblock}{answer}
+		【答案】：东南风约\SI{14}{m/s}.
+	\end{taggedblock}
+	
+	%%%%%%%%解析
+	\begin{taggedblock}{analysis}
+		【解析】：略
+	\end{taggedblock}
+\end{example}
+
+
+\stitle{参考系变换}
+在处理实际问题时，一般选择地面为参考系，但并不是所有问题都只能选择地面为参考系。如果能灵活巧妙地选择参考系，有时可以简化求解过程。
+
+在处理运动学问题时，变换参考系时只需按照速度、位移、加速度变换公式进行相应变换即可。但是在处理动力学、能量问题时，可能涉及惯性力等复杂问题，要特别注意，这些内容我们会在后面模块中陆续介绍。
+
+\begin{app}{擦肩而过}{}
+	两个质点$A$、$B$同时从$P$、$Q$两点出发，分别以速度$\vec{v}_{1}$沿直线$AB$和以速度$\vec{v}_2$沿PR作匀速直线运动，$QR$和$QP$的夹角为$\alpha$，开始时$PQ$两点相距$l$，求此后两质点的最短距离。
+	\begin{center}
+		\includegraphics[width=0.3\linewidth]{image/motion-problem-29}
+	\end{center}
+	\tcblower
+	\begin{center}
+		\includegraphics[width=0.3\linewidth]{image/motion-problem-1}
+	\end{center}
+	
+	解：除了通常的解法以外还可以使用参考系变换的方法，若以A为参考系进行观察，B相对于A的速度满足
+	\[
+	\vec{v}_{B\rightarrow A} = 	\vec{v}_{B\rightarrow G}+	\vec{v}_{G\rightarrow A} = \vec{v_B}-\vec{v_A},
+	\]
+	上式中的$ G $代表与地面(ground)。
+	如图所示给出了B相对于A速度的大小和方向，对于本题来说，最关键的是相对速度与相对连线方向的夹角$ \beta $，利用几何关系可得
+	\[
+	\sin\beta = \frac{v_B\sin\alpha}{\sqrt{v_A^2+v_B^2+2v_Av_B\cos\alpha}},
+	\]
+	其中分母为相对速度的大小，这里已经使用了余弦定律。
+	利用前面得到的相对速度，不难求出在此后的运动过程中两者的最近距离
+	\[
+	d = l\sin\beta =\left( \frac{v_B\sin\alpha}{\sqrt{v_A^2+v_B^2+2v_Av_B\cos\alpha}}\right)l
+	\]
+	
+\end{app}
+
+
+
+
+\begin{example}
+	. 一队步兵以$ v_1=1.5~\si{m/s}  $的速度匀速前进，队列长度为$ L=1200~\si{m} $ ．通讯员从队尾到队首传达命令后，立即返回队尾，共用时间为$ t=10~\si{min} $ ，如果通讯员的速度大小始终保持不变，且传达命令和改变方向所用时间忽略不计，求通讯员的速度大小．
+	%	\begin{problemfig}
+	%		\includegraphics[width=行宽比例\linewidth]{文件位置}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{3cm}
+	\end{taggedblock}
+	
+	
+	%%%%%%%%答案
+	\begin{taggedblock}{answer}
+		【答案】：$ v = 4.5~\si{m/s}. $
+	\end{taggedblock}
+	
+	%%%%%%%%解析
+	\begin{taggedblock}{analysis}
+		【解析】：设通讯员的速度大小为$ v $，从队尾走到队首所用时间为$ t_1 $、再从队首走到队尾所用时间为$ t_2 $．
+		
+		方法一：选择地面参考系,
+		通讯员由队尾走到队首的过程中，由位移关系有
+		\[
+		vt_1=v_1 t_1+L．
+		\]
+		通讯员由队首走回队尾的过程中，由位移关系有：
+		\[
+		vt_2+v_1 t_2=t．
+		\]
+		又因为$t_1+t_2=t$．		带入数据，联立可解得$v=4.5\si{m/s}$．
+		
+		方法二：选择一队步兵为参考系，以$ v_1 $方向为正方向：
+		这时运动情景变为一队步兵静止不动，通讯员先以$ v-v_1 $的速度由队尾走到队首，再以$ -v-v_1 $的速度(即速度大小为$ v+v_1 $，方向与正方向相反)由队首走到队尾，所用的总时间为$ t=10\si{min} $．列出方程为：
+		\[
+		L/(v-v_1 )+L/(v+v_1 )=t．
+		\]
+		带入数据可解得：$v=4.5\si{m/s}$．
+		
+		其实不难发现，方法二的方程可以由方法一的方程组通过消元得到．在不同的参考系中都可
+		以解决这个问题，但是方法二通过换参考系，使得思维难度下降，问题变简单了．
+	
+		
+	\end{taggedblock}
+\end{example}
+
+
+
+\begin{example}
+	有人逆水行舟，水速$ v_r=3\si{m/s}$ ，途中从船上掉下一漂浮物，10分钟后发现，并立即调头追赶，如果人划船速度大小保持$ v_s =5~\si{m/s}  $不变，则追上漂浮物需要多长时间．(注意：$ v_s =5~\si{m/s}  $是指船相对水的速度)
+	%	\begin{problemfig}
+	%		\includegraphics[width=行宽比例\linewidth]{文件位置}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{3cm}
+	\end{taggedblock}
+	
+	
+	%%%%%%%%答案
+	\begin{taggedblock}{answer}
+		【答案】：10~\si{min}.
+	\end{taggedblock}
+	
+	%%%%%%%%解析
+	\begin{taggedblock}{analysis}
+		【解析】：选择流动的河水为参考系．
+		在此参考系中，漂浮物落水后不再运动，
+		船以\SI{5}{m/s} 向前行驶10分钟后调头仍以同样的速度运动到漂浮物落水处，
+		因船的往返速度和位移大小均相同，故往返时间必相同，即返回时间也为10分钟．
+	
+		
+	\end{taggedblock}
+\end{example}
+
+
+
+\begin{example}
+	 在宽为$ l $的河的两岸停着两艘小船，它们的连线与河岸成$ \alpha $角，已知两艘小船在静水中最大的划行速度分别为$ u_1,u_2 $，河水流速为$ v $．若它们同时出发，则各应向什么方向划行才能在最短时间内相遇，并求出此时间．
+	%	\begin{problemfig}
+	%		\includegraphics[width=行宽比例\linewidth]{文件位置}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{3cm}
+	\end{taggedblock}
+	
+	
+	%%%%%%%%答案
+	\begin{taggedblock}{answer}
+		【答案】：见解析。
+	\end{taggedblock}
+	
+	%%%%%%%%解析
+	\begin{taggedblock}{analysis}
+		【解析】： 两小船初始时相距$ l/\sin\alpha $ ，其方向与河岸成$ \alpha $角．
+		设两船相对河岸的速度分别为$ \vec{v}_1,\vec{v}_2 $，则
+		\[
+		\vec{v}_1 = \vec{v}+\vec{u}_1,\qquad \vec{v}_2 = \vec{v}+\vec{u}_2,
+		\]
+		其中$ \vec{v} $为河水相对岸的速度。
+		两船相对速度为
+		\[
+		\vec{v}_1 -\vec{v}_2 = 	\vec{u}_1 -\vec{u}_2,
+		\]
+		易知，当相对速度两船连线方向的投影最大时，则它们将用最短时间相遇．
+		因此，要求$ \vec{u}_{1,2} $平行于两船连线方向，且相互接近($ \vec{u}_{1,2} $反向)．所需时间为
+		\[
+		t = \frac{l }{(u_1+u_2)\sin\alpha}.
+		\]
+	．
+	\end{taggedblock}
+\end{example}
+
+
+
+\begin{example}
+	 如图所示，几辆相同的汽车以相等的速度v沿宽为c的平直公路行驶(不妨设向右行驶)，每车宽为b，头尾间间距为a，则人能沿一条直线安全穿过马路时的最小速度是多少？
+	 \marginpar{\centering \includegraphics[width=\marginparwidth]{image/kinamatics-4.png}\figcaption{第\theexample 题} }
+	%	\begin{problemfig}
+	%		\includegraphics[width=行宽比例\linewidth]{文件位置}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{2cm}
+	\end{taggedblock}
+	
+	
+	%%%%%%%%答案
+	\begin{taggedblock}{answer}
+		【答案】：$ v_{min} = \frac{b}{\sqrt{a^2+b^2}}v $
+	\end{taggedblock}
+	
+	%%%%%%%%解析
+	\begin{taggedblock}{analysis}
+		
+				\marginpar{\centering \includegraphics[width=\marginparwidth]{image/kinamatics-5.png}} 
+		【解析】：这个情景也与小船过河问题有类似之处(人的运动方向可以变化，存在恒定速度运动的车流)，不过分析起采要更复杂一些．
+		本题在地面参考系中研究比较困难(主要是在地面参考系中不容易看出人相对车是如何运动的)，因此我们选择车为参考系，
+		如图所示，人刚好能正常穿过马路时(不与车辆相碰)，应该相对车沿虚线方向运动，设虚线方向与水平方向夹角为$ \alpha $，则$ \sin\alpha=b/\sqrt{a^2+b^2} $，
+		由于$v_{\text{人对车}}=v_{\text{人对地}}-v_{\text{车对地}}$，如图中几何关系所示，可知$v_{min}=v\sin\alpha=vb/\sqrt{a^2+b^2} $．
+		当然本题中人相对车也可以沿其他直线路径过马路，但是这时路径与水平方向的夹角都大于图中a，对应的$ \vec{v} $都比图中的$ v_{min} $大，因此，图中情况所得的$ v_{min} $即为人安全穿过马路时的最小速度．
+
+		
+	\end{taggedblock}
+\end{example}
+
+
+
+\stitle{导数}
+当我们研究一个函数自变量与因变量之间的关系时，除了它们数值上“静态的”对应关系外，往往还
+需要有“运动”或“变化”的观点，即着眼于研究函数的变化趋势、增减快慢等，这也就是函数的“变化率”的
+概念。
+
+
+
+ 当函数$  y=f(x) $的自变量 $ x $从$  x_0 $增加一个增量 $ \Delta x $，即从 $ x_0 $变为 $ x_0+\Delta x $，那么对应的函数值也从$  f(x_0) $变到 $ f(x_0+\Delta x) $，于是因变量 $ y $的增量：
+ \[
+ \Delta y =  f(x_0+\Delta x) -f(x_0),
+ \]
+ 那么，$ \Delta y $和$ \Delta x $的增量比为
+ \[
+ \frac{\Delta y}{\Delta x} = \frac{f(x_0+\Delta x) -f(x_0)}{\Delta x},
+ \]
+ 这个比值，就是函数在区间$  [x_0,x_0+\Delta x] $内的平均变化率。当 $ \Delta x\rightarrow 0 $时，上述 变化量比的极限就是函数在$ x_0 $处的变化率，数学上称其为$ y=f(x) $在$ x_0 $处对$ x $的导数 ，记作$  y' (x_0) $或者 $ f' (x_0) $，即
+ \begin{equation}
+  y' (x_0) = f' (x_0) = \lim_{ \Delta x\rightarrow 0}\frac{\Delta y}{\Delta x} =  \lim_{ \Delta x\rightarrow 0}\frac{f(x_0+\Delta x) -f(x_0)}{\Delta x} .
+ \end{equation}
+ 除了$  y' (x_0) $、$  f' (x_0) $外，导数还常常写成微商的形式，如 $ dy/dx $、$  df/dx $、 $ \dv{x} f(x) $。
+ 这里需要指出的是， 函数$ f(x) $的导数$ f' (x) $本身也是关于$ x $的一个函数，不同的$ x $值对应的$ f' (x) $也不同 。
+  \begin{figure}
+\centering
+\includegraphics[width=0.5\linewidth]{image/kinamatics-6}
+\caption{导数就是切线的斜率}
+\label{fig:kinamatics-6}
+\end{figure}
+
+
+这里我们将从函数图像上来帮助大家理解导数“变化率”的概念。
+如图\ref{fig:kinamatics-6}所示为某一函数的图像，我们在函数图像上任取一点 $ A(x_0,y_0) $，当自变量 $ x $有一增量$  \Delta x $时，函数值 $ y=f(x) $也会相应增加 $ \Delta y $，此时对应于函数图像上的另一点$  B(x_0+\Delta x,y_0+\Delta y) $，此时 $ \Delta y $与 $ \Delta x $的增量比即为直线 AB的斜率。当  $ \Delta x $逐渐减小时，  $ \Delta y $也会相应减小，此时 B点会沿着函数图像向 A点靠近。当  $ \Delta x \rightarrow 0 $时，直线 AB会变成函数图像在 A点的切线，即 $ y=f(x) $在 A点切线的斜率 $ k $就等于函数在 A点的导数，记作：
+\begin{equation}
+k = \dv{y}{x} = \lim_{ \Delta x\rightarrow 0}\frac{\Delta y}{\Delta x} =  \lim_{ \Delta x\rightarrow 0}\frac{f(x_0+\Delta x) -f(x_0)}{\Delta x}
+\end{equation}
+这里需要指出的是，直线的斜率 $ k $有正有负，那么一个函数的导数也有正有负。
+当函数图像上某一点 $ A(x_0,y_0) $的切线斜率 $ k>0 $时，函数在此点的导数 $ f' (x_0)>0 $，说明函数值在 A点附近正在递增。
+同理当函数图像上一点 $ A(x_0,y_0) $的切线斜率$ k<0 $时函数值会随着自变量的增加而减小。
+
+\stitle{基本初等函数的导数}
+
+ 基本初等函数有常值函数、幂函数、指数函数、对数函数、三角函数、反三角函数 6种，基本函数的导数只能通过导数的定义（和反函数的性质）来求解，下面我们介绍高中阶段常见的前5种基本初等函数和它们的导数。
+ 
+ 
+ \begin{description}
+ 	\item[常值函数]  常值函数 （也称常函数）是指函数值不发生改变（即是常数）的函数。常函数常以
+ 	\[
+ 	f(x) = \const \qquad or \qquad f(x) = C
+ 	\]
+ 表示。如$ f(x)=8.18 $。
+ 	由于常函数f(x)=C的值不随自变量x变化而变化，所以常函数的导数为$ f' (x)=0 $
+ 	
+ 	\item[幂函数] 以底数为自变量，幂为因变量，指数为常数的函数。幂函数常以$ f(x)=x^n $表示，这里的指数$ n $可以是任何有理数。
+ 	幂函数的导数$ f' (x)=nx^(n-1) $。
+ 	
+ 	\item[指数函数]以指数为自变量，幂为因变量，底数为常数的函数。指数函数以$ f(x)=a^x $表示，式中$ a>0 $且$ a\neq 1 $。
+ 	指数函数的导数$ f' (x)=a^x ln⁡a $。
+ 	特别地，当底数$ a $是自然常数$ e $（即$ a=e $）时，$ f' (x)=e^x $，即$ f(x)=e^x $的导数还是原函数本身。
+ 	\item[对数函数]以幂为自变量，指数为因变量，底数为常数的函数。对数函数以$f(x)=\log_a⁡x$表示，式中$ a>0 $且$ a\neq 1 $。
+ 	对数函数的导数$ f' (x)=1/(xln⁡a) $。
+ 	特别地，当底数$ a $是自然常数$ e $（即$ a=e $）时，$ f' (x)=1/x $。
+ 	\item[三角函数]以角度为自变量，角度对应任意两边的比值为因变量的函数。
+ 	在这里我们给出两个三角函数的导数，其余三角函数的导数可以通过后面我们介绍的求导法则来求解。正弦函数$ f(x)=\sin ⁡x $的导数$ f' (x)=\cos⁡ x $，余弦函数$ f(x)=\cos⁡ x $的导数$ f' (x)=-\sin ⁡x $。
+ \end{description}
+
+\stitle{函数求导法则}
+
+ 一般初等函数常常是由多个基本初等函数组合而成的，例如 $ y=\frac{1}{\sqrt{\sin x}}⁡ $)就是由 $ y=1/x $、 $ y=\sqrt{x} $、$  y=\sin⁡x $组合而成的。
+ 所以在求导运算中，需要定义一些求导的运算法则，它们可能通过导数的定义直接推导而得。
+ 
+  设 $ f $和 $ g $都是可导函数， $ \alpha $和 $ \beta $都是常数，那么
+  \begin{eqnarray}
+  	(\alpha f+\beta g)' &=& \alpha f'+\beta g',\\
+  	(fg)'&=&f'g+fg',\\
+  	\left( \frac{f}{g} \right)'&=&\frac{f'g-fg'}{g^2}. 
+  \end{eqnarray}
+
+
+\begin{example}
+	%%%%题干
+	利用导数的性质求以下函数的导数
+	\begin{eqnarray*}
+	f(x)&=& x^2\cos x,\\
+	f(x)&=& \tan x,\\
+	f(x)&=&\frac{3x^2-2}{5x+1},\\
+	f(x)&=& \frac{x\sin x+\cos x}{x\sin x-\cos x}.
+				\end{eqnarray*}
+	%%%%插图
+	%	\begin{problemfig}
+	%		\includegraphics[width=0.6\linewidth]{image/}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{0cm}
+	\end{taggedblock}
+	
+	
+	%%%%答案
+	\begin{taggedblock}{answer}
+		答案：
+	\end{taggedblock}
+	
+	
+	%%%%解析
+	\begin{taggedblock}{analysis}
+		解析：
+	\end{taggedblock}
+\end{example}
+
+如果函数 $ \varphi(x) $在 $ x_0 $处可导，函数$  f $在 $ u_0=\varphi(x_0) $处可导，则复合函数$  f(\varphi(x)) $在$  x_0 $处可导，且满足
+\begin{equation}
+f' (x)=f' (u_0)φ' (x_0),
+\end{equation}
+利用微分记号，复合函数求导可以简单表述如下
+\begin{equation}
+\dv{y}{x} = \dv{y}{u}\dv{u}{x}
+\end{equation}
+
+\begin{example}
+	%%%%题干
+	利用复合函数求导法则求以下函数的导数
+	\begin{eqnarray*}
+		f(x)&=&\cos(ax+b),\\
+		f(x)&=&\sin^{10}x,\\
+		f(x)&=&\sin(10 x),\\
+		f(x)&=&\sqrt{x^2-1}.
+	\end{eqnarray*}
+	%%%%插图
+	%	\begin{problemfig}
+	%		\includegraphics[width=0.6\linewidth]{image/}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{0cm}
+	\end{taggedblock}
+	
+	
+	%%%%答案
+	\begin{taggedblock}{answer}
+		答案：
+	\end{taggedblock}
+	
+	
+	%%%%解析
+	\begin{taggedblock}{analysis}
+		解析：
+	\end{taggedblock}
+\end{example}
+
+\stitle{函数的极值}
+ 函数的导数刻画了函数的瞬时变化率，从而很好地描述了函数局部变化的性质。
+ 我们在导数的几何意义中已经提到了导数与函数单调性的关系。当一个函数在连续变化时，函数在 $ x=x_0 $处的导数满足 $ f' (x_0)>0 $，说明函数正在单调递增。
+ 同理，如果函数在 $ x=x_0 $处的导数满足$ f' (x_0)<0 $，说明函数正在单调递减。
+ 作为一个连续函数，随着$ x $的增加，往往会遇到函数值$ y=f(x) $有时递增有时递减，如图所示。当函数达到极大值或极小值时，显然有
+ \begin{equation}
+  f' (x_0)=0
+ \end{equation}
+所以我们往往可以通过导数等于零，来求解函数值达到极大或极小值时对应的$ x_0 $。
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\linewidth]{image/kinamatics-7}
+\caption{导数为零的点是函数的极值点}
+\label{fig:kinamatics-7}
+\end{figure}
+
+
+\begin{example}
+	%%%%题干
+	 某商场销售某种商品的经验表明，该商品的每日销售量$  y $（单位为千克）与销售价格 $ x $（单位为元/千克）满足关系式
+	 \[
+	  y=a/(x-3)+10(x-6)^2,\qquad 3<x<6.
+	 \]
+	 求商品最理想的定价是多少。
+  
+	%%%%插图
+	%	\begin{problemfig}
+	%		\includegraphics[width=0.6\linewidth]{image/}
+	%	\end{problemfig}
+	
+	\begin{taggedblock}{student}
+		\vspace*{2cm}
+	\end{taggedblock}
+	
+	
+	%%%%答案
+	\begin{taggedblock}{answer}
+		答案：
+	\end{taggedblock}
+	
+	
+	%%%%解析
+	\begin{taggedblock}{analysis}
+		解析：
+	\end{taggedblock}
+\end{example}
+
+\begin{example}
+	%%%%题干
+	某单位用木料做如图所示的框架，框架的下部是边长分别为$ x $、$ y $（单位为米）的矩形，上面是等腰直角三角形．要求框架的总面积为\SI{8}{m^2}，问$ x $、$ y $分别为多少时用料最省？
+	%%%%插图
+		\begin{flushright}
+			\includegraphics[width=0.2\linewidth]{image/kinamatics-8.png}
+		\end{flushright}
+	
+	\begin{taggedblock}{student}
+		\vspace*{0cm}
+	\end{taggedblock}
+	
+	
+	%%%%答案
+	\begin{taggedblock}{answer}
+		答案：
+	\end{taggedblock}
+	
+	
+	%%%%解析
+	\begin{taggedblock}{analysis}
+		解析：
+	\end{taggedblock}
+\end{example}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/W32TeX) (preloaded format=xelatex 2019.3.12)  10 JUN 2019 10:32
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/W32TeX) (preloaded format=xelatex 2019.3.12)  11 JUN 2019 09:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3462,8 +3462,30 @@ File: ttlkeys.def 2011/12/15
 
 LaTeX Warning: Label `key' multiply defined.
 
-) (./chapter/newton.aux) (./chapter/NIR.aux) (./chapter/momentum.aux)
-(./chapter/energy.aux) (./chapter/angular-momentum.aux) (./chapter/statics.aux)
+) (./chapter/newton.aux) (./chapter/NIR.aux
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+) (./chapter/momentum.aux) (./chapter/energy.aux)
+(./chapter/angular-momentum.aux) (./chapter/statics.aux)
 (./chapter/gravity-1.aux) (./chapter/gravity-2.aux) (./chapter/oscillation.aux)
 (./chapter/wave.aux) (./chapter/geometrical-optics.aux)
 (./chapter/physical-optics.aux) (./chapter/thermal-1.aux)
@@ -3837,9 +3859,80 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 ]
 \openout2 = `chapter/NIR.aux'.
 
+ (./chapter/NIR.tex [14
 
-No file chapter/NIR.tex.
+
+
+]
+Chapter 3.
+File: image/NIR-1.png Graphic file (type QTm)
+<use  "image/NIR-1.png" >
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 12.
+
+[15]
+File: image/NIR-2.png Graphic file (type QTm)
+ <use  "image/NIR-2.png" > [16]
+File: image/NIR-3.png Graphic file (type QTm)
+ <use  "image/NIR-3.png" >
+File: image/NIR-4.png Graphic file (type QTm)
+
+<use  "image/NIR-4.png" >
+
+LaTeX Warning: Marginpar on page 17 moved.
+
+File: image/NIR-5.png Graphic file (type QTm)
+<use  "image/NIR-5.png" > [17]
+Missing character: There is no ⁡ in font rm-lmr10!
+File: image/NIR-6.png Graphic file (type QTm)
+ <use  "image/NIR-6.png" >
+File: image/NIR-7.png Graphic file (type QTm)
+
+<use  "image/NIR-7.png" >
+File: image/NIR-8.png Graphic file (type QTm)
+ <use  "image/NIR-8.png" >
+
+LaTeX Warning: Marginpar on page 18 moved.
+
+Missing character: There is no θ in font lmmi10!
+Missing character: There is no ⁡ in font rm-lmr10!
+Missing character: There is no μ in font lmmi10!
+[18]
+File: image/NIR-9.png Graphic file (type QTm)
+ <use  "image/NIR-9.png" >
+
+LaTeX Warning: Marginpar on page 19 moved.
+
+File: image/NIR-10.png Graphic file (type QTm)
+<use  "image/NIR-10.png" >
+
+LaTeX Warning: Marginpar on page 19 moved.
+
+Missing character: There is no ⁡ in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no α in font [lmroman10-regular]:mapping=tex-text!
+File: image/NIR-11.png Graphic file (type QTm)
+<use  "image/NIR-11.png" >
+File: image/NIR-12.png Graphic file (type QTm)
+ <use  "image/NIR-12.png" >
+
+LaTeX Warning: Marginpar on page 19 moved.
+
+File: image/NIR-13.png Graphic file (type QTm)
+<use  "image/NIR-13.png" > [19]
+File: image/NIR-14.png Graphic file (type QTm)
+ <use  "image/NIR-14.png" >
+File: image/NIR-15.png Graphic file (type QTm)
+
+<use  "image/NIR-15.png" >
+File: image/NIR-16.png Graphic file (type QTm)
+ <use  "image/NIR-16.png" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20])
+[21]
 \openout2 = `chapter/momentum.aux'.
+
 
 No file chapter/momentum.tex.
 \openout2 = `chapter/energy.aux'.
@@ -3947,12 +4040,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 55163 strings out of 493706
- 1180495 string characters out of 6148913
- 1314833 words of memory out of 5000000
- 57348 multiletter control sequences out of 15000+600000
+ 55215 strings out of 493706
+ 1181722 string characters out of 6148913
+ 1315369 words of memory out of 5000000
+ 57382 multiletter control sequences out of 15000+600000
  82935 words of font info for 138 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  71i,15n,104p,10436b,1126s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on zz-lecture.pdf (13 pages).
+Output written on zz-lecture.pdf (21 pages).
